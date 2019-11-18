@@ -1,0 +1,26 @@
+﻿@model MvcDynamicNavbar_Demo.Models.Navbar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title text-uppercase">Nabvar Details</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-md-2">@Html.DisplayNameFor(m => m.Title)</dt>
+            <dd class="col-md-10">@Html.DisplayFor(m => m.Title)</dd>
+            <dt class="col-md-2">@Html.DisplayNameFor(m => m.ActionName)</dt>
+            <dd class="col-md-10">@Html.DisplayFor(m => m.ActionName)</dd>
+            <dt class="col-md-2">@Html.DisplayNameFor(m => m.ControllerName)</dt>
+            <dd class="col-md-10">@Html.DisplayFor(m => m.ControllerName)</dd>
+        </dl>
+        <div class="form-group">
+            <a href="@Url.Action("Edit","HomeNavbar")" class="btn btn-sm btn-info rounded-0 text-uppercase"><i class="fas fa-edit"></i> Edit</a>
+            <a href="@Url.Action("List","HomeNavbar")" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-backward"></i> Back to list</a>
+        </div>
+    </div>
+</div>
+

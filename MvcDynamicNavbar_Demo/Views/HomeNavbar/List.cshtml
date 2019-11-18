@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MvcDynamicNavbar_Demo.Models.Navbar>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h4 class="text-uppercase text-center">List of navbar</h4>
+
+<a href="@Url.Action("New","HomeNavbar")" class="btn btn-sm btn-primary rounded-0 text-white mb-2"><i class="fas fa-plus-circle"></i> Add New</a>
+<div class="table-responsive">
+    <table class="table table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Title)</th>
+                <th>@Html.DisplayNameFor(m => m.ActionName)</th>
+                <th>@Html.DisplayNameFor(m => m.ControllerName)</th>
+                <th>Action(s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.ActionName</td>
+                    <td>@item.ControllerName</td>
+                    <td>
+                        <a href="@Url.Action("Details","HomeNavbar",new { id=item.Id})" class="btn btn-sm btn-primary text-white"><i class="fas fa-eye"></i></a>
+                        <a href="@Url.Action("Edit","HomeNavbar",new { id=item.Id})" class="btn btn-sm btn-info text-white"><i class="fas fa-edit"></i></a>
+                        <a href="@Url.Action("Delete","HomeNavbar",new { id=item.Id})" class="btn btn-sm btn-danger text-white"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

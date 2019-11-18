@@ -1,0 +1,35 @@
+﻿@model MvcDynamicNavbar_Demo.Models.Navbar
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title text-uppercase">Delete Navbar</h5>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-danger">
+            <h5>Are you sure want to delete this?</h5>
+        </div>
+        <dl class="row">
+            <dt class="col-md-2">@Html.DisplayNameFor(m => m.Title)</dt>
+            <dd class="col-md-10">@Html.DisplayFor(m => m.Title)</dd>
+            <dt class="col-md-2">@Html.DisplayNameFor(m => m.ActionName)</dt>
+            <dd class="col-md-10">@Html.DisplayFor(m => m.ActionName)</dd>
+            <dt class="col-md-2">@Html.DisplayNameFor(m => m.ControllerName)</dt>
+            <dd class="col-md-10">@Html.DisplayFor(m => m.ControllerName)</dd>
+        </dl>
+        <div class="form-group">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <button type="submit" class="btn btn-danger btn-sm rounded-0"><i class="fas fa-trash"></i> Delete</button>
+                    <a href="@Url.Action("Edit","HomeNavbar")" class="btn btn-sm btn-info rounded-0 text-uppercase"><i class="fas fa-edit"></i> Edit</a>
+                    <a href="@Url.Action("List","HomeNavbar")" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back to list</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

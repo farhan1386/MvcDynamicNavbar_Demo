@@ -1,0 +1,53 @@
+﻿@model MvcDynamicNavbar_Demo.Models.Navbar
+
+@{
+    ViewBag.Title = "New";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title text-uppercase">add new</h5>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("New", "HomeNavbar"))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.LabelFor(m => m.Title)
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-navicon"></i></div>
+                    </div>
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ActionName)
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-briefcase"></i></div>
+                    </div>
+                    @Html.TextBoxFor(m => m.ActionName, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.ActionName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ControllerName)
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
+                    </div>
+                    @Html.TextBoxFor(m => m.ControllerName, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.ControllerName)
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-sm btn-primary rounded-0 text-uppercase">Submit</button>
+                <a href="@Url.Action("List","HomeNavigation")" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-backward"></i> Back to List</a>
+            </div>
+        }
+    </div>
+</div>
+
+

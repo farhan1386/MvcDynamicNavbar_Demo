@@ -1,0 +1,53 @@
+﻿@model MvcDynamicNavbar_Demo.Models.Navbar
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title text-uppercase">Edit Navbar</h5>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id)
+            <div class="form-group">
+                @Html.LabelFor(m => m.Title)
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-trophy"></i></div>
+                    </div>
+                    @Html.EditorFor(m => m.Title, new { HtmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(m => m.Title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ActionName)
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-briefcase"></i></div>
+                    </div>
+                    @Html.EditorFor(m => m.ActionName, new { HtmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(m => m.ActionName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ControllerName)
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
+                    </div>
+                    @Html.EditorFor(m => m.ControllerName, new { HtmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(m => m.ControllerName)
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-sm btn-info rounded-0 text-uppercase"><i class="fas fa-edit"></i> Update</button>
+                <a href="@Url.Action("List","HomeNavbar")" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-backward"></i> Back to List</a>
+            </div>
+        }
+    </div>
+</div>
+
